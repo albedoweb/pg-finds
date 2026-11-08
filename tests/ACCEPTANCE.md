@@ -1,0 +1,20 @@
+# Browser acceptance scenario
+
+Run against the deployed collection in Chrome. Record the URL, build, date, observed counts and PASS, FAIL or BLOCKED per ID. Allow navigation and reload to complete before inspecting the page. Preserve existing browser tabs and bookmarks; if the test item is already saved, choose an unsaved item and restore its original state afterward.
+
+- **LAY01**: Open `/pg-finds/`. The compact header leads directly into the catalog; the hero and “Start here” card labels are absent. Verify English copy, the total against the current catalog data, and a single compact header line containing the brand, Hacker News attribution, and methodology link. Verify there is no separate attribution or secondary heading row.
+- **NAV01**: Click the title of Article “Why pg_dump Is Amazing”; expect its matching `/pg-finds/resource/e5a49f50336f33283c5d03e2` detail heading. Return using “Back to the collection”. Click “Go to original”; expect its original source in a new tab.
+- **NAV02**: Click the title of Project “PGlite”; expect `/pg-finds/resource/88495512298136aeb0028b83` and the matching heading. Return, then click “Go to original” and expect its source in a new tab.
+- **NAV03**: Filter format to Documentation and click the title of “PostgreSQL Date and Time Types”; expect `/pg-finds/resource/8bdac38a212337b02908e3f7` and the matching heading. Return, then click “Go to original” and expect its source in a new tab.
+- **NAV04**: Open “How we made it”; expect the 2024 pilot history, expanded coverage, the partial 2026 archive and Algolia supplement, the discovery-date versus publication-date caveat, and Hacker News attribution. Follow the dates anchor and return to the catalog.
+- **NAV05**: On a resource detail, click its topic and verify the catalog selects that topic and displays matching results. Reload; the selection persists. Change the topic and use browser Back; verify the previous selection returns. Reset and reload; verify All topics remains selected. Check a topic containing `&` and an unknown category URL, which must fall back to All topics.
+- **SEARCH01**: Search `PGLI`; expect case-insensitive matching results including PGlite and pglite-fusion. Repeat `pgli`; expect the same results. Search `zzzznomatch`; expect zero and an empty state. Use Reset filters; expect the full current count.
+- **FILTER01**: Check topic and format filters independently and together against the current data. Select each available HN year and verify a multi-year resource appears for each of its mention years. Reset.
+- **SORT01**: Check A–Z, Newest discovery and Newest HN mention against their labels, including a resource with multiple mention dates; then reset.
+- **PAGE01**: With all results and selected order, click “Show more finds” until all cards appear; verify the remaining count decreases and the button disappears.
+- **SAVE01**: Save an initially unsaved “Why pg_dump Is Amazing”. Reload and expect the saved state and reading-list count increment. Open My reading list, verify the item, remove it, reload and verify removal persisted. Preserve all pre-existing saves.
+- **SOURCE01**: On the pg_dump detail verify the original link points to `rhaas.blogspot.com/2024/11/why-pgdump-is-amazing.html` and an HN discussion points to `news.ycombinator.com/item?id=42018341`; check their new-tab behavior without disturbing other tabs.
+- **CONTENT01**: Find OrioleDB and inspect its detail for a qualified release-status warning, original source and discovery-date caveat.
+- **MOBILE01**: At a narrow mobile viewport, check the single-line header including Hacker News attribution, navigation, filters, cards and details for usability and horizontal overflow; restore the viewport afterward.
+
+Record actual observations, including blocked cases. Do not infer a browser pass from code alone.
