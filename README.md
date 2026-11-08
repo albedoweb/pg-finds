@@ -1,6 +1,6 @@
 # PG Finds
 
-[Browse the catalogue](https://albedoweb.github.io/pg-finds/) · [How it was made](https://albedoweb.github.io/pg-finds/method/)
+[Browse the catalogue](https://albedoweb.github.io/pg-finds/) · [How it was made](https://albedolab.hashnode.dev/building-pg-finds) · [Sources & methodology](https://albedoweb.github.io/pg-finds/method/)
 
 A curated, model-assisted catalog of PostgreSQL resources discovered through Hacker News discussions. The source is the [open-index/hacker-news dataset](https://huggingface.co/datasets/open-index/hacker-news); the site’s methodology page describes selection and limitations. Links point to original resources and Hacker News discussions; full articles are not reproduced.
 
